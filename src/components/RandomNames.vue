@@ -1,39 +1,38 @@
 <template>
   <div>
     <img alt="Random logo" class="logo" src="@/assets/randomList.png" width="125" height="125" />
-    <h1>Random list</h1>
+    <h1>Random Names</h1>
+    <div>
+      <textarea
+        v-model="dataNames"
+        class="my-textarea"
+        placeholder="Type the names to generate random list, one per line"
+        rows="10"
+        cols="45"
+      ></textarea>
+    </div>
+    <div>
+      <button class="buttonRandom" @click="showDataName()">Randomize</button>
+    </div>
   </div>
-  <div>
-    <textarea
-      v-model="dataNames"
-      class="textAreaList"
-      placeholder="Type names , one per line you want to randomize order"
-      rows="10"
-      cols="40"
-    ></textarea>
-  </div>
-  <button class="buttonRandom" @click="showDataName">Random Names</button>
 </template>
-
 <script lang="ts">
-// import RouterView from 'vue-router'
-export default {
-  // components: { RouterView },
-  data() {
-    return {
-      dataNames: ''
+  export default {
+    data() {
+      return {
+        dataNames: '',
+        shuffledArray: [] as string[]
+      };
+    },
+    methods: {
+      showDataName() {
+        let arr = this.dataNames.split('\n');
+        const shuffledArray = arr.sort(() => Math.random() - 0.5);
+        this.shuffledArray = shuffledArray;
+        this.$router.push({ path: '/resultList', query: { shuffledArray: shuffledArray } });
+      }
     }
-  },
-  methods: {
-    showDataName() {
-      console.log(this.dataNames)
-      let arr = this.dataNames.split('\n')
-      console.log('arr', arr)
-      let shuffledArray = arr.sort(() => Math.random() - 0.5)
-      console.log('shuffledArray', shuffledArray)
-    }
-  }
-}
+  };
 </script>
 
 <style>
@@ -58,22 +57,26 @@ h1 {
   top: -10px;
   text-align: center;
 }
-.textAreaList {
-  font-size: 1.2rem;
-  background-color: white !important;
-  color: black !important;
-  font-weight: bold;
-  font-family: 'Roboto', sans-serif;
-}
 .buttonRandom {
   background-color: rgb(255, 196, 10);
   color: black;
   font-family: 'Roboto', sans-serif;
   margin-top: 1em;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
   padding: 5px 10px;
   border-radius: 10px;
   font-weight: bold;
   font-size: 1em;
   border-color: transparent;
+}
+.my-textarea {
+  font-size: 1.2em; 
+  border: 1px solid #ccc; 
+  border-radius: 15px; 
+  padding: 0.5em; 
+  font-family: 'Roboto', sans-serif;
+  color: black !important;
 }
 </style>
