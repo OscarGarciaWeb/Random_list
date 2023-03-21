@@ -1,14 +1,14 @@
 <template>
   <div>
     <img alt="Random logo" class="logo" src="@/assets/randomList.png" width="125" height="125" />
-    <h1>Result List</h1>
+    <h1>Result Random List</h1>
     <div>
       <ul class="my-list">
         <li v-for="(name, index) in shuffledArray" :key="index">{{ name }}</li>
       </ul>
     </div>
   </div>
-  <button class="buttonRandom" @click="volver">Volver</button>
+  <button class="buttonRandom" @click="volver">Back</button>
 </template>
 
 <script lang="ts">
@@ -25,11 +25,7 @@ export default {
     },
   },
   created() {
-    console.log('this.shuffledArray',this.shuffledArray);
-    // Obtén el array desordenado de la URL
     const query = this.$route.query;
-    console.log('query',query);
-
     if (query && query.shuffledArray) {
       this.shuffledArray = query.shuffledArray as string[];
     }

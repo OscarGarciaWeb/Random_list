@@ -1,4 +1,4 @@
-# Random_list_2
+# Random Name List
 
 This template should help get you started developing with Vue 3 in Vite.
 
@@ -21,6 +21,16 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
+## Random Name List Screenshot
+</br>
+
+![Screenshot Random Name List](/src/assets/Screenshot_1.jpg)   
+
+## Random Name List Screenshot Result
+</br>
+
+![Screenshot Random Name List](/src/assets/Screenshot_2.jpg)   
+
 ## Project Setup
 
 ```sh
@@ -37,10 +47,4 @@ npm run dev
 
 ```sh
 npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
