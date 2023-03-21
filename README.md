@@ -31,6 +31,11 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ![Screenshot Random Name List](/src/assets/Screenshot_2.jpg)   
 
+## Random Name List Example
+</br>
+
+![Alt Text](/src/assets/RandomList.gif)
+
 ## Project Setup
 
 ```sh
